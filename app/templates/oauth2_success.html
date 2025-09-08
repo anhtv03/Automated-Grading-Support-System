@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập thành công</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding: 80px 20px;
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        .logo {
+            width: 60px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #444;
+        }
+
+        .button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Logo_FPT_Education.png" style="width: 10%" class="logo" alt="App Logo" />
+
+    <h1>You're almost done!</h1>
+    <p>We're redirecting you to the desktop app.</p>
+    <p>If you don't see a dialog, click the button below.</p>
+
+    <a class="button" id="openAppBtn" href="#">Proceed to Grading Support System</a>
+
+    <script>
+        const deepLink = "myapp://auth/callback?code={{code}}";
+        window.location.href = deepLink;
+        document.getElementById("openAppBtn").href = deepLink;
+
+        setTimeout(() => {
+            window.close();
+        }, 3000);
+    </script>
+</body>
+</html>

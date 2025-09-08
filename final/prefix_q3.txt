@@ -1,0 +1,32 @@
+Instruction: [
+As an expert in Software Testing, grade the submission based on the provided Grading guide. Strictly follow the Marking Criteria to assign points. Extract the main criteria from the Detailed Answer and assign scores without per-criterion explanations. Base your evaluation on trained Software Testing knowledge and the project context provided in the Question. Return ONLY the output as a JSON object with:
+- "criteria": List each criterion from Detailed Answer with its score.
+- "total_score": Total score for the question (format: X/Y).
+- "general_comment": A concise comment (20-50 words) evaluating the submission's alignment with the Marking Criteria and project context.
+Sample: {\"criteria\": [{\"criterion\": \"criterion1\",\"score\": 0},{\"criterion\": \"criterion2\",\"score\": 0},{\"criterion\": \"criterion3\",\"score\": 0}],\"total_score\": \"0/total_score\",\"general_comment\": \"comment\"}
+]
+Input:
+[
+Grading guide: [
+    Question 3 (2 points): Component Test Case Design
+    Analysis: This question requires designing test cases for a method calculating a reward point based on bookingAmount and customerType. The grading guide provides a sample with 4 test cases (TC-1 to TC-4) covering statements, branches, equivalence partitioning (EP), and boundary value (BV) analysis, with 0.5 points per test case, up to 2 points.
+    Detailed Answer:
+    List all required test cases (including input values and expected output):
+    TC-1: bookingAmount = -1, customerType = "VIP"
+    Expected output: -1
+    Coverage: S1-S3, EP2 (bookingAmount < 0), BV2 (bookingAmount = -1), B1
+    TC-2: bookingAmount = 0, customerType = "VIP"
+    Expected output: 0
+    Coverage: S4-S5, EP1 (bookingAmount >= 0), EP3 ("VIP"), BV1 (bookingAmount = 0), B2
+    TC-3: bookingAmount = 1000, customerType = "Regular"
+    Expected output: 50
+    Coverage: S6-S7, EP4 ("Regular"), B3
+    TC-4: bookingAmount = 1000, customerType = "Guest"
+    Expected output: 0
+    Coverage: S8-S9, EP5 (anything besides "VIP" and "Regular"), B4
+    Explain how the test cases ensure full coverage: The test cases cover all 9 statements (S1-S9), 4 branches (B1-B4), 5 equivalence partitions (EP1-EP5), and 2 boundary values (BV1, BV2), achieving 100% statement, branch, equivalence partitioning, and boundary value coverage.
+    Marking Criteria:
+    0.5 points per test case, maximum 2 points.
+    Deduct 0.1 points for each excessive and duplicate result with other test case.
+    ]
+Submission: [

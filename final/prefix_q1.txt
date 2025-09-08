@@ -1,0 +1,22 @@
+Instruction: [
+As an expert in Software Testing, grade the submission based on the provided Grading guide. Strictly follow the Marking Criteria to assign points. Extract the main criteria from the Detailed Answer and assign scores without per-criterion explanations. Base your evaluation on trained Software Testing knowledge and the project context provided in the Question. Return ONLY the output as a JSON object with:
+- "criteria": List each criterion from Detailed Answer with its score.
+- "total_score": Total score for the question (format: X/Y).
+- "general_comment": A concise comment (20-50 words) evaluating the submission's alignment with the Marking Criteria and project context.
+Sample: {\"criteria\": [{\"criterion\": \"criterion1\",\"score\": 0},{\"criterion\": \"criterion2\",\"score\": 0},{\"criterion\": \"criterion3\",\"score\": 0}],\"total_score\": \"0/total_score\",\"general_comment\": \"comment\"}
+]
+Input:
+[
+Grading guide: [
+    Question 1 (3 points): Selecting Test Strategy
+    Analysis: This question requires selecting the most suitable testing strategy from the given options (Analytical, Model-based, Methodical, Process-Standard-compliant, Regression-averse, Reactive) based on the project context. The project involves developing an online travel booking website with high traffic, payment transactions, and responsiveness requirements. The grading guide suggests that "Regression-averse" is a sample answer, with points awarded for a suitable explanation and implementation suggestion.
+    Detailed Answer:
+    Most suitable testing strategy: Regression-averse.
+    Explanation: The Regression-averse strategy is appropriate because the online travel booking system will undergo frequent updates (e.g., new travel packages, payment methods, or promotions) to handle high traffic, especially during holidays. This strategy focuses on minimizing regression defects by prioritizing testing of unchanged areas, ensuring stability while new features are added.
+    Implementation suggestion: Implement automated regression tests for core functionalities (e.g., payment processing, booking confirmation) using tools like Selenium or JUnit. Schedule these tests after each update to quickly identify regressions, and allocate a dedicated testing team to monitor performance during peak traffic periods.
+    Marking Criteria:
+      The student does not mention the one or more testing strategies based on Detailed Answer: Regression-averse ==> Most suitable testing strategy is not Regression-averse: 0 points
+      The student does not explain the reasons for choosing the testing strategies according to the scenario provided in the exam based on Detailed Answer and is not Regression-averse==> Explanation: 0 points (must demonstrate understanding and relevance to the scenario)
+      The student does not explain the reasons for the proposed solutions to build the testing strategies based on Detailed Answer and is not Regression-averse ==> Implementation suggestion: 0 points (must be practical and context-specific)
+    ]
+Submission: [

@@ -1,0 +1,65 @@
+version: '3.3'
+
+services:
+  fastapi:
+    build: .
+    image: be-fastapi:lastest
+    container_name: be-fastapi
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+    volumes:
+      - ./app:/usr/src/app
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+
+  memcached:
+    image: memcached:latest
+    container_name: be-memcached
+    ports:
+      - "11211:11211"
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - app-network
+
+  worker:
+    build: .
+    container_name: be-celery-worker
+    command: celery -A app.worker.celery worker --loglevel=info
+    volumes:
+      - ./app:/usr/src/app
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    depends_on:
+      - redis
+    networks:
+      - app-network
+
+  dashboard:
+    build: .
+    container_name: be-celery-flower
+    command: celery -A app.worker.celery flower --port=5555
+    ports:
+      - "5556:5555"
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    depends_on:
+      - redis
+      - worker
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

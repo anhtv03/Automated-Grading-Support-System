@@ -1,0 +1,55 @@
+Instruction: [
+As an expert in Software Testing, grade the submission based on the provided Grading guide. Strictly follow the Marking Criteria to assign points. Extract the main criteria from the Detailed Answer and assign scores without per-criterion explanations. Base your evaluation on trained Software Testing knowledge and the project context provided in the Question. Return ONLY the output as a JSON object with:
+- "criteria": List each criterion from Detailed Answer with its score.
+- "total_score": Total score for the question (format: X/Y).
+- "general_comment": A concise comment (20-50 words) evaluating the submission's alignment with the Marking Criteria and project context.
+Sample: {\"criteria\": [{\"criterion\": \"criterion1\",\"score\": 0},{\"criterion\": \"criterion2\",\"score\": 0},{\"criterion\": \"criterion3\",\"score\": 0}],\"total_score\": \"0/total_score\",\"general_comment\": \"comment\"}
+]
+Input:
+[
+Grading guide: [
+    Question 4 (2 points): System Test Case Design
+    Analysis: This question requires designing test cases for two processes: "Booking a Travel Package" and "Searching for Available Hotels." The grading guide provides 5 sample test cases for the first process, with 0.2 points per reasonable test case, up to 2 points.
+    Detailed Answer:
+    Process 1: Booking a Travel Package
+    TC-1: Successful booking with credit card
+    Precondition: User logged in
+    Test Steps: 1. Search destination → 2. Select package → 3. Review details → 4. Enter traveler info → 5. Pay with credit card → 6. Confirm
+    Expected Result: Booking confirmed, email sent, itinerary received
+    Note: Normal Flow (NF)
+    TC-2: Successful booking with digital wallet
+    Precondition: User logged in
+    Test Steps: 1. Search destination → 2. Select package → 3. Review details → 4. Enter traveler info → 5. Pay with digital wallet → 6. Complete payment
+    Expected Result: Booking confirmed, email sent, itinerary received
+    Note: Alternative Flow (AF)
+    TC-3: Invalid credit card during payment
+    Precondition: User logged in
+    Test Steps: 1. Search destination → 2. Select package → 3. Enter info → 4. Enter invalid card number → 5. Confirm
+    Expected Result: Payment fails, error message displayed
+    Note: Exception (EX)
+    TC-4: System timeout during payment
+    Precondition: User logged in
+    Test Steps: 1. Search destination → 2. Select package → 3. Enter info → 4. Pay (simulate timeout) → 5. Confirm
+    Expected Result: Transaction cancelled, error message shown
+    Note: Exception (EX)
+    TC-5: Applying discount code
+    Precondition: User logged in
+    Test Steps: 1. Search destination → 2. Select package → 3. Review details → 4. Enter traveler info → 5. Pay with digital wallet → 6. Enter valid discount code → 7. Verify reduced price → 8. Complete payment
+    Expected Result: Booking confirmed with discount, email sent, itinerary received
+    Note: Alternative Flow (AF)
+    Process 2: Searching for Available Hotels
+    TC-6: Successful hotel search
+    Precondition: User logged in
+    Test Steps: 1. Enter destination and travel dates → 2. Apply filters (e.g., price, rating) → 3. Select a hotel → 4. View details → 5. Book
+    Expected Result: Hotel details displayed, booking option available
+    Note: Normal Flow (NF)
+    TC-7: No hotels available
+    Precondition: User logged in
+    Test Steps: 1. Enter destination and dates with no availability → 2. Apply filters → 3. Search
+    Expected Result: Message "No hotels available" displayed
+    Note: Exception (EX)
+    Explain how the test cases ensure full coverage: The test cases cover normal flows (successful booking/payment), alternative flows (discount code, digital wallet), and exceptions (invalid card, timeout, no hotels), ensuring comprehensive validation of the processes.
+    Marking Criteria (from SHEET "Q4"):
+    0.2 points per reasonable test case, maximum 2 points.
+    ]
+Submission: [
