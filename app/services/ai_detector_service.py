@@ -15,17 +15,7 @@ from app.schemas.sche_submission import SubmissionResponse
 load_dotenv()
 
 # List of Winston AI API keys (replace with your actual keys)
-API_KEYS = [
-    "BebE636UCXLkVBLkvNLWAJivF6TRVFwSFxsGwx96400b7712",
-    "LRWp6MN69akrpmnWZoTBpCFmHAK5WJoI1EOubA5C5e4d16cd",
-    "cEmLcgucfoAzs2mLICbv57dSIhspaL6vg18uWIf816aee3a6",
-    "bIT8FXKDd1pXS3eZONIc8CQsL8bUm68u1XjHxobx469fc348",
-    "MLJwhtBlU6g0G7xD4FOy7Dk0f4g0h1AXRWSZfl3B8c1ba5fc",
-    "aqh1QGE9Vxpf7xmFUd7rFX6vaZcJeIUtN3vlXsmZ339f413f",
-    "RmVZoYZPbUQkzKtYbRm6AdtakCRwFezWpmuNumbl56cead34",
-    "wKjpeqd8cObHMvtQ9ZmaYpLP5WBwvJAt70Qt0tXG8be5a8ca",
-    "yztyp456utWh1PFWR4wQyaE9pnvK11Ifm9laT2M6ac1b0bb0",
-]
+API_KEYS = []
 
 class AIDetectorService:
 
